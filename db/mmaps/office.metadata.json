@@ -1,0 +1,1 @@
+{ "options" : { "create" : "mmaps.office" }, "indexes" : [ { "v" : 1, "key" : { "_id" : 1 }, "ns" : "mmaps.office", "name" : "_id_" }, { "v" : 1, "key" : { "geometry.coordinates" : "2dsphere" }, "ns" : "mmaps.office", "name" : "geometry.coordinates_2dsphere" } ] }
