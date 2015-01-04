@@ -64,5 +64,5 @@ Build:
 Run:
 
     $ ./gradlew jettyRun
-    $ open http://localhost:8080/mmaps-rest
+    $ open http://localhost:8080/mongodb-maps
  
