@@ -59,10 +59,10 @@ Office count inside a 10-km radius from Madrid:
 
 Build:
 
-    $ mvn clean install
+    $ ./gradlew build
 
 Run:
 
-    $ mvn jetty:run
+    $ ./gradlew jettyRun
     $ open http://localhost:8080/mmaps-rest
  

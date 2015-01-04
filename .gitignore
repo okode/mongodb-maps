@@ -1,15 +1,8 @@
-*.class
+# Gradle
+build
 
 # Eclipse
 .classpath
 .project
 .settings
-
-# Output folders
-target
-
-# Package Files
-*.jar
-*.war
-*.ear
 

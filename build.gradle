@@ -1,0 +1,20 @@
+apply plugin: "java"
+apply plugin: "eclipse"
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+sourceCompatibility = "1.8"
+version = "1.0-SNAPSHOT"
+
+ext.logback_version = "1.1.2"
+
+ext.deps = [
+    logback: "ch.qos.logback:logback-classic:$logback_version"
+]
+
+dependencies {
+    compile deps.logback
+}
