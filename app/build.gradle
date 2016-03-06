@@ -27,7 +27,7 @@ springBoot {
     excludeDevtools = true
 }
 
-jar { archiveName = 'mongo-db-maps.jar' }
+jar { archiveName = 'mongodb-maps.jar' }
 
 dependencies {
     compile     'org.springframework.boot:spring-boot-starter-web'
