@@ -21,7 +21,7 @@ RUN apt-get install -y software-properties-common && \
 
 RUN rm -rf /var/lib/apt/lists/*
 
-COPY build/libs/mongo-db-maps.jar.jar /mongodb-maps/
+COPY build/libs/mongodb-maps.jar /mongodb-maps/
 
 EXPOSE 8080
 

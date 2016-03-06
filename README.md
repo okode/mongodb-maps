@@ -3,16 +3,20 @@ MongoDB Maps
 
 Simple MongoDB and Google Maps integration with Spring MVC WebApp.
 
-Requirements for OSX
---------------------
+Requirements
+------------
 
-### Install MongoDB
+* Docker
 
-    $ brew install mongodb
+Building
+--------
 
-### Start MongoDB
+    $ docker-compose build
 
-    $ mongod --config /usr/local/etc/mongod.conf
+Running
+-------
+
+    $ docker-compose up -d
 
 ### Drop BD
 

@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+
+  app:
+    container_name: mongodb-maps
+    image: okode/mongodb-maps
+    build: app
+    ports:
+      - "8080:8080"
