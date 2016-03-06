@@ -1,5 +1,5 @@
 /**
- * Copyright 2015 Okode | www.okode.com
+ * Copyright 2016 Okode | www.okode.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,20 +23,19 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.BasicQuery;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.stereotype.Controller;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.mongodb.DBObject;
 import com.okode.demos.mmaps.model.GeoJSON;
-import com.wordnik.swagger.annotations.Api;
-import com.wordnik.swagger.annotations.ApiOperation;
 
-@Controller
-@RequestMapping("/api")
-@Api(value = "", description = "Common API Operations")
+import io.swagger.annotations.ApiOperation;
+
+@RestController
+@RequestMapping(value = "/api", produces = MediaType.APPLICATION_JSON_VALUE)
 public class APIController {
 	
 	@Autowired
@@ -44,7 +43,6 @@ public class APIController {
 	
 	@ApiOperation("Find entities by filter and fields inside a view")
 	@RequestMapping(value = "/findentities", method = RequestMethod.GET)
-	@ResponseBody
 	private GeoJSON findEntitiesInsideViewByFilterFields(
 			@RequestParam(defaultValue = "24.25079") float lat1,
 			@RequestParam(defaultValue = "-35.912262") float lng1,

@@ -14,26 +14,18 @@
  * limitations under the License.
  */
 
-package com.okode.demos.mmaps.model;
+package com.okode.demos.mmaps;
 
-import java.util.List;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.web.config.EnableSpringDataWebSupport;
 
-import com.mongodb.DBObject;
+@SpringBootApplication
+@EnableSpringDataWebSupport
+public class Application {
 
-public class GeoJSON {
-
-	private List<DBObject> features;
-	
-	public GeoJSON(List<DBObject> features) {
-		this.features = features;
+	public static void main(String[] args) {
+		SpringApplication.run(Application.class, args);
 	}
-	
-	public String getType() {
-		return "FeatureCollection";
-	}
-	
-	public List<DBObject> getFeatures() {
-		return features;
-	}
-	
+
 }
