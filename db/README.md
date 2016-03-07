@@ -1,30 +1,12 @@
-MongoDB Maps
-============
+Populate Database
+=================
 
-Simple MongoDB and Google Maps integration with Spring MVC WebApp.
+Replace $(docker-machine ip) with your container IP:
 
-Requirements
-------------
+    $ mongorestore -h $(docker-machine ip) -d mmaps mmaps
 
-* Docker
-
-Building
---------
-
-    $ cd app && ./gradlew build && cd ..
-    $ docker-compose build
-
-Running
--------
-
-    $ docker-compose up -d
-    $ cd db && mongorestore -h $(docker-machine ip) -d mmaps mmaps && cd ..
-
-Open the following URL:
-
-    http://$(docker-machine ip):8080
-
-### Simple queries
+Simple queries
+==============
 
     $ mongo
     > show dbs
@@ -36,7 +18,8 @@ Open the following URL:
     > db.office.findOne().loc
     > db.office.findOne().address.loc[0]
 
-### Spatial queries
+Spatial queries
+===============
 
 Offices inside a 10-km radius from location (0.8, 41.78):
 

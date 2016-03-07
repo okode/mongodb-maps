@@ -18,7 +18,7 @@ function updateMarkers() {
 	clearMarkers();
 	var sw = bounds.getSouthWest();
 	var ne = bounds.getNorthEast();
-	var query = '/mongodb-maps/api/findentities?lat1=' + sw.lat() + '&lng1=' + sw.lng() + '&lat2=' + ne.lat() + '&lng2=' + ne.lng();
+	var query = '/api/findentities?lat1=' + sw.lat() + '&lng1=' + sw.lng() + '&lat2=' + ne.lat() + '&lng2=' + ne.lng();
 	query += filter + fields + collection;
 	$.getJSON(query, function(data) {
 		$.each(data.features, function(index, feature) {
