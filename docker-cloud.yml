@@ -1,7 +1,7 @@
 mongodb-maps-app:
   image: 'okode/mongodb-maps:latest'
   links:
-    - mongodb-maps-db
+    - 'mongodb-maps-db:db'
   ports:
     - '8080'
 mongodb-maps-db:
