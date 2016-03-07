@@ -4,7 +4,7 @@ services:
 
   app:
     container_name: mongodb-maps-app
-    image: okode/mongodb-maps-app
+    image: okode/mongodb-maps
     build: app
     ports:
       - "8080:8080"
