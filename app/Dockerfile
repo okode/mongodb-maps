@@ -21,7 +21,11 @@ RUN apt-get install -y software-properties-common && \
 
 RUN rm -rf /var/lib/apt/lists/*
 
-COPY build/libs/mongodb-maps.jar /mongodb-maps/
+COPY source /source
+RUN cd source && \
+    ./gradlew build
+
+RUN mkdir /mongodb-maps && cp /source/build/libs/mongodb-maps.jar /mongodb-maps/
 
 EXPOSE 8080
 

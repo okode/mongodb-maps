@@ -11,7 +11,6 @@ Requirements
 Building
 --------
 
-    $ cd app && ./gradlew build && cd ..
     $ docker-compose build
 
 Running
