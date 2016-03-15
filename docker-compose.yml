@@ -2,14 +2,16 @@ version: '2'
 
 services:
 
-  app:
+  mongodb-maps-app:
     container_name: mongodb-maps-app
     image: okode/mongodb-maps
     build: app
+    links:
+      - 'mongodb-maps-db:db'
     ports:
       - "8080:8080"
 
-  db:
+  mongodb-maps-db:
     container_name: mongodb-maps-db
     image: mongo
     ports:
