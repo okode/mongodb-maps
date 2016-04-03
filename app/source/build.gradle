@@ -51,7 +51,7 @@ jacoco {
 
 sonarqube {
     properties {
-        property 'sonar.projectName',          'MongoDB Maps'
+        property 'sonar.projectName',          'mongodb-maps-develop'
         property 'sonar.projectKey',           'com.okode.mongodbmaps'
         property 'sonar.scm.provider',         'git'
         property 'sonar.junit.reportsPath',    'build/test-results'
