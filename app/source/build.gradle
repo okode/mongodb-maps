@@ -58,8 +58,7 @@ sonarqube {
         property 'sonar.java.coveragePlugin',  'jacoco'
         property 'sonar.jacoco.reportPath',    'build/jacoco/test.exec'
         property 'sonar.host.url',             "$System.env.SONAR_HOST_URL"
-        property 'sonar.login',                "$System.env.SONAR_LOGIN"
-        property 'sonar.password',             "$System.env.SONAR_PASSWORD"
+        property 'sonar.login',                "$System.env.SONAR_AUTH_TOKEN"
     }
 }
 
