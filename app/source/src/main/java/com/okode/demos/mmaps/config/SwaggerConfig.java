@@ -41,7 +41,7 @@ public class SwaggerConfig extends WebMvcConfigurerAdapter {
 	
 	@Bean
 	UiConfiguration uiConfig() {
-		return new UiConfiguration(null, "none", "alpha", "schema", false, true);
+		return new UiConfiguration(null, "none", "alpha", "schema", null, false, true);
 	}
 	
 	private Docket docket(String groupName, String pathSelectors) {
