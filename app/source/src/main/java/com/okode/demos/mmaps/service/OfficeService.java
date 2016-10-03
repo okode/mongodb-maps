@@ -31,8 +31,8 @@ public class OfficeService {
 	@Autowired
 	private OfficeRepository officeRepository;
 	
-	public List<Office> findAllInsideView(Box box) {
-		return officeRepository.findByLocationWithin(box);
+	public List<Office> findByGeometryWithin(Box box) {
+		return officeRepository.findByGeometryWithin(box);
 	}
 	
 }

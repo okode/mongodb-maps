@@ -25,6 +25,6 @@ import com.okode.demos.mmaps.model.Office;
 
 public interface OfficeRepository extends MongoRepository<Office, String> {
 
-	List<Office> findByLocationWithin(Box box);
+	List<Office> findByGeometryWithin(Box box);
 	
 }

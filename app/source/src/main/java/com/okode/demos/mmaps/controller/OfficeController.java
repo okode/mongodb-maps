@@ -24,6 +24,7 @@ import org.springframework.data.geo.Point;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.okode.demos.mmaps.model.Office;
@@ -40,8 +41,8 @@ public class OfficeController {
 	
 	@ApiOperation("Find offices inside a view")
 	@RequestMapping(method = RequestMethod.GET)
-	public List<Office> findByLocationWithin(float lat1, float lng1, float lat2, float lng2) {
-		return officeService.findAllInsideView(new Box(new Point(lng1, lat1), new Point(lng2, lat2)));
+	public List<Office> findByGeometryWithin(@RequestParam float lat1, @RequestParam float lng1, @RequestParam float lat2, @RequestParam float lng2) {
+		return officeService.findByGeometryWithin(new Box(new Point(lng1, lat1), new Point(lng2, lat2)));
 	}
 	
 }
