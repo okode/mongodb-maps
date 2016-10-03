@@ -35,4 +35,8 @@ public class OfficeService {
 		return officeRepository.findByGeometryWithin(box);
 	}
 	
+	public List<Office> findByRegionAndGeometryWithin(String region, Box box) {
+		return officeRepository.findByRegionAndGeometryWithin(region, box);
+	}
+	
 }

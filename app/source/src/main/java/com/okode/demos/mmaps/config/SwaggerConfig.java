@@ -54,7 +54,7 @@ public class SwaggerConfig extends WebMvcConfigurerAdapter {
 	private ApiInfo apiInfo() {
 		return new ApiInfoBuilder().title("MongoDB Maps API")
 				.description("MongoDB Maps API Documentation and Testing").version("1.0")
-				.license("Copyright (C) 2015 Okode · www.okode.com")
+				.license("Copyright (C) 2016 Okode · www.okode.com")
 				.licenseUrl("http://www.okode.com")
 				.termsOfServiceUrl("http://www.okode.com").build();
 	}

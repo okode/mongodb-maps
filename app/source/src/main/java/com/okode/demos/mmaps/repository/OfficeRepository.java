@@ -20,11 +20,18 @@ import java.util.List;
 
 import org.springframework.data.geo.Box;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
 
 import com.okode.demos.mmaps.model.Office;
 
 public interface OfficeRepository extends MongoRepository<Office, String> {
 
+	public static final String DEFAULT_FIELDS = "{ '_id' : 0 , 'geometry' : 1 , 'properties.name' : 1 , 'properties.url' : 1 , 'properties.pictures' : 1 }";
+	
+	@Query(value = "{ 'geometry' : { '$geoWithin' : { '$box' : ?0 } } }", fields = DEFAULT_FIELDS)
 	List<Office> findByGeometryWithin(Box box);
+	
+	@Query(value = "{ 'properties.address.region' : ?0, 'geometry' : { '$geoWithin' : { '$box' : ?1 } } }", fields = DEFAULT_FIELDS)
+	List<Office> findByRegionAndGeometryWithin(String region, Box box);
 	
 }

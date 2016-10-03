@@ -8,3 +8,5 @@ spring.jackson.serialization.indent-output: true
 spring.profiles: dev
 
 spring.data.mongodb.host: localhost
+
+logging.level.org.springframework.data.mongodb.core.MongoTemplate: DEBUG

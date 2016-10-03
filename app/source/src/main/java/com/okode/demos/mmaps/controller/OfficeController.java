@@ -20,8 +20,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.geo.Box;
-import org.springframework.data.geo.Point;
+import org.springframework.data.mongodb.core.geo.GeoJsonPoint;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -38,11 +39,18 @@ public class OfficeController {
 
 	@Autowired
 	private OfficeService officeService;
-	
-	@ApiOperation("Find offices inside a view")
+
+	@ApiOperation("Find offices inside box")
 	@RequestMapping(method = RequestMethod.GET)
-	public List<Office> findByGeometryWithin(@RequestParam float lat1, @RequestParam float lng1, @RequestParam float lat2, @RequestParam float lng2) {
-		return officeService.findByGeometryWithin(new Box(new Point(lng1, lat1), new Point(lng2, lat2)));
+	public List<Office> findByGeometryWithinBox(@RequestParam GeoJsonPoint first, @RequestParam GeoJsonPoint second) {
+		List<Office> result = officeService.findByGeometryWithin(new Box(first, second));
+		return result;
+	}
+	
+	@ApiOperation("Find offices from region inside box")
+	@RequestMapping(value = "/{region}", method = RequestMethod.GET)
+	public List<Office> findByRegionAndGeometryWithinBox(@PathVariable String region, @RequestParam GeoJsonPoint first, @RequestParam GeoJsonPoint second) {
+		return officeService.findByRegionAndGeometryWithin(region, new Box(first, second));
 	}
 	
 }

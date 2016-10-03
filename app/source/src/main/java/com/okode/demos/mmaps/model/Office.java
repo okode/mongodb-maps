@@ -16,8 +16,6 @@
 
 package com.okode.demos.mmaps.model;
 
-import java.util.Map;
-
 import org.springframework.data.mongodb.core.geo.GeoJsonPoint;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -26,10 +24,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonInclude(Include.NON_NULL)
 public class Office {
-
+	
 	@JsonProperty
 	private GeoJsonPoint geometry;
 	
 	@JsonProperty
-	private Map<Object, Object> properties;
+	private Object properties;
 }
