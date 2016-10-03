@@ -7,4 +7,4 @@ spring.jackson.serialization.indent-output: true
 
 spring.profiles: dev
 
-spring.data.mongodb.host: 127.0.0.1
+spring.data.mongodb.host: localhost
