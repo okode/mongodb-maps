@@ -3,10 +3,8 @@ var markers = [];
 var bounds;
 var updater;
 var box;
+var fromMadrid = false;
 var enableBox = false;
-var filter = '&filter={"properties.address.region":"MADRID"}';
-var fields = '&fields={"_id":0,"type":1,"geometry":1,"properties.name":1,"properties.url":1,"properties.pictures":1}';
-var collection = "&collection=office";
 
 function clearMarkers() {
 	for (var i = 0; i < markers.length; ++i)
@@ -18,10 +16,13 @@ function updateMarkers() {
 	clearMarkers();
 	var sw = bounds.getSouthWest();
 	var ne = bounds.getNorthEast();
-	var query = '/api/findentities?lat1=' + sw.lat() + '&lng1=' + sw.lng() + '&lat2=' + ne.lat() + '&lng2=' + ne.lng();
-	query += filter + fields + collection;
+	var query = '/api/offices';
+	if (fromMadrid) {
+		query = '/api/offices/MADRID';
+	}
+	query += '?first=' + sw.lat() + ',' + sw.lng() + '&second=' + ne.lat() + ',' + ne.lng();
 	$.getJSON(query, function(data) {
-		$.each(data.features, function(index, feature) {
+		$.each(data, function(index, feature) {
 			var office = feature.properties;
 			var marker = new google.maps.Marker({
 				position : new google.maps.LatLng(feature.geometry.coordinates[1], feature.geometry.coordinates[0]),
@@ -87,27 +88,12 @@ function initialize() {
 	map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
 
 	addButton(map, "Todas", "Todas las oficinas", function() {
-		filter = '&filter={}';
+		fromMadrid = false;
 		updateMap();
 	});
 	
 	addButton(map, "Madrid", "Todas las oficinas de Madrid", function() {
-		filter = '&filter={"properties.address.region":"MADRID"}';
-		updateMap();
-	});
-	
-	addButton(map, "Promos locales", "Todas las oficinas de España con promociones locales", function() {
-		filter = '&filter={"properties.promos":{$elemMatch:{"type":"LOCAL"}}}';
-		updateMap();
-	});
-	
-	addButton(map, "Promos locales Madrid", "Todas las oficinas de Madrid con promociones locales", function() {
-		filter = '&filter={$and:[{"properties.promos":{$elemMatch:{"type":"LOCAL"}}},{"properties.address.region":"MADRID"}]}';
-		updateMap();
-	});
-	
-	addButton(map, "Promos locales varias ciudades", "Todas las oficinas de Madrid, Barcelona, Sevilla o Valencia con promociones locales", function() {
-		filter = '&filter={$and:[{"properties.promos":{$elemMatch:{"type":"LOCAL"}}},{"properties.address.region":{$in:["MADRID", "VALENCIA", "SEVILLA", "BARCELONA"]}}]}';
+		fromMadrid = true;
 		updateMap();
 	});
 	

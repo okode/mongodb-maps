@@ -14,18 +14,20 @@
  * limitations under the License.
  */
 
-package com.okode.demos.mmaps;
+package com.okode.demos.mmaps.model;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.data.web.config.EnableSpringDataWebSupport;
+import org.springframework.data.mongodb.core.geo.GeoJsonPoint;
 
-@SpringBootApplication
-@EnableSpringDataWebSupport
-public class Application {
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-    public static void main(String[] args) {
-        SpringApplication.run(Application.class, args); // NOSONAR
-    }
-
+@JsonInclude(Include.NON_NULL)
+public class Office {
+	
+	@JsonProperty
+	private GeoJsonPoint geometry;
+	
+	@JsonProperty
+	private Object properties;
 }

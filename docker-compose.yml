@@ -9,10 +9,10 @@ services:
     links:
       - 'mongodb-maps-db:db'
     ports:
-      - "8080:8080"
+      - '8080:8080'
 
   mongodb-maps-db:
     container_name: mongodb-maps-db
     image: mongo
     ports:
-      - "27017:27017"
+      - '27017:27017'

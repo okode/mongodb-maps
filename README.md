@@ -17,11 +17,12 @@ Running
 -------
 
     $ docker-compose up -d
-    $ cd db && mongorestore -h $(docker-machine ip) -d mmaps mmaps && cd ..
+    $ docker cp db/mmaps mongodb-maps-db:/mmaps
+    $ docker exec -ti mongodb-maps-db mongorestore -d mmaps /mmaps
 
 Open the following URL:
 
-    http://$(docker-machine ip):8080
+    http://localhost:8080
 
 ### Simple queries
 

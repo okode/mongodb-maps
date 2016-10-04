@@ -14,26 +14,29 @@
  * limitations under the License.
  */
 
-package com.okode.demos.mmaps.model;
+package com.okode.demos.mmaps.service;
 
 import java.util.List;
 
-import com.mongodb.DBObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.geo.Box;
+import org.springframework.stereotype.Service;
 
-public class GeoJSON {
+import com.okode.demos.mmaps.model.Office;
+import com.okode.demos.mmaps.repository.OfficeRepository;
 
-	private List<DBObject> features;
+@Service
+public class OfficeService {
+
+	@Autowired
+	private OfficeRepository officeRepository;
 	
-	public GeoJSON(List<DBObject> features) {
-		this.features = features;
+	public List<Office> findByGeometryWithin(Box box) {
+		return officeRepository.findByGeometryWithin(box);
 	}
 	
-	public String getType() {
-		return "FeatureCollection";
-	}
-	
-	public List<DBObject> getFeatures() {
-		return features;
+	public List<Office> findByRegionAndGeometryWithin(String region, Box box) {
+		return officeRepository.findByRegionAndGeometryWithin(region, box);
 	}
 	
 }
