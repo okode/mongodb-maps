@@ -22,7 +22,7 @@ dependencyManagement {
     imports { mavenBom 'io.spring.platform:platform-bom:Athens-RELEASE' }
 }
 
-version = '0.1.2'
+version = '0.2.0'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
