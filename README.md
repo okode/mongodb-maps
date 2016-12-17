@@ -3,6 +3,8 @@ MongoDB Maps
 
 Simple MongoDB and Google Maps integration with Spring MVC WebApp.
 
+[![Build Status](https://travis-ci.org/okode/mongodb-maps.svg?branch=develop)](https://travis-ci.org/okode/mongodb-maps)
+
 Requirements
 ------------
 
