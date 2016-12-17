@@ -1,2 +1,4 @@
-before_script: cd app/source
+before_install: cd app/source
 language: java
+jdk:
+  - oraclejdk8
