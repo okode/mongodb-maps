@@ -8,7 +8,9 @@ jobs:
       JVM_OPTS: -Xmx3200m
     steps:
       - checkout
-      - run: cd app/source && ./gradlew check && cd -
+      - run:
+          name: Build
+          command: cd app/source && ./gradlew check && cd -
 workflows:
   version: 2
   mongodbmaps:
