@@ -1,9 +1,0 @@
-dist: trusty
-before_install: cd app/source
-language: java
-jdk:
-  - oraclejdk8
-notifications:
-  email:
-    recipients:
-      - developers@okode.com
