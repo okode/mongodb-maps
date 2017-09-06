@@ -1,4 +1,0 @@
-before_install: cd app/source
-language: java
-jdk:
-  - oraclejdk8

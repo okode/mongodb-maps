@@ -1,0 +1,23 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/src
+    docker:
+      - image: okode/openjdk
+    environment:
+      JVM_OPTS: -Xmx3200m
+    steps:
+      - checkout
+      - run: cd app/source && ./gradlew check && cd -
+workflows:
+  version: 2
+  mongodbmaps:
+    jobs:
+      - build:
+          context: org-global
+          filters:
+            branches:
+              ignore:
+                - master
+            tags:
+              only: /.*/
